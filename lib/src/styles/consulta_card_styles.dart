@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../models/status_consulta.dart';
 import 'app_colors.dart';
 
@@ -46,13 +45,23 @@ class ConsultaCardStyles {
     fontSize: 14,
   );
 
-  static BoxDecoration get card => BoxDecoration(
-    color: AppColors.branco,
-    borderRadius: BorderRadius.circular(16),
-    boxShadow: const [
-      BoxShadow(color: Color(0x33000000), blurRadius: 8, offset: Offset(0, 4)),
-    ],
+  static const TextStyle botaoDetalhesTexto = TextStyle(
+    color: AppColors.primaria,
+    fontWeight: FontWeight.bold,
+    fontSize: 14,
   );
+
+  static BoxDecoration get card => BoxDecoration(
+        color: AppColors.branco,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: const [
+          BoxShadow(
+            color: Color(0x33000000),
+            blurRadius: 8,
+            offset: Offset(0, 4),
+          ),
+        ],
+      );
 
   static BoxDecoration badge(StatusConsulta status) {
     return BoxDecoration(
@@ -62,11 +71,14 @@ class ConsultaCardStyles {
   }
 
   static BoxDecoration get secao => const BoxDecoration(
-    border: Border(bottom: BorderSide(color: AppColors.bordaSecao)),
-  );
+        border: Border(
+          bottom: BorderSide(color: AppColors.bordaSecao),
+        ),
+      );
 
   static BoxDecoration mensagem(StatusConsulta status) {
     final confirmada = status == StatusConsulta.confirmada;
+
     return BoxDecoration(
       color: confirmada
           ? AppColors.fundoMensagemSucesso
